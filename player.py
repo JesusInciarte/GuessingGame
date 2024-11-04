@@ -1,16 +1,17 @@
 """Represent the player who participates by guessing numbers"""
 import random
 class Player:
-    def __init__(self):
+    def __init__(self, name):
         self._guess = -1
-        self._name = ""
+        self._name = name
 
     def getGuess(self):
         return guess
     
     def play(self):
-        guess = random.randit(1,10)
-        return guess
+        self._guess = random.randit(0,9)
+        return self._guess
+    
     def getName(self):
         return self._name
     

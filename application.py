@@ -4,4 +4,8 @@ from guessingGame import GuessingGame
 
 class Application:
     def run(self):
-        pass
+        #create game
+        game = GuessingGame()
+
+        #start the game
+        game.start()

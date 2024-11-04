@@ -7,6 +7,14 @@ class GuessingGame:
         self._answer = -1
         self._roundCount = 0
 
+        #create the 3 players OBJs
+        self._larry = Player("Larry")
+        self._curly = Player("Curly")
+        self._moe = Player("Moe")
+
+        #ElaraStats = Character("Elara", 20, 15, 30, 100)
+
+
     def start(self):
         pass
 
