@@ -3,4 +3,12 @@
 from player import Player
 
 class GuessingGame:
-    pass
+    def __init__(self):
+        self._answer = -1
+        self._roundCount = 0
+
+    def start(self):
+        pass
+
+    def determineWinner(self):
+        pass
