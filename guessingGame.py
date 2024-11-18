@@ -3,9 +3,6 @@
 import random
 from player import Player
 from interactivePlayer import InteractivePlayer
-
-
-
 class GuessingGame:
     
     #define static/shared field variables

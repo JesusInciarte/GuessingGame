@@ -1,6 +1,6 @@
 """Represent the player who participates by guessing numbers"""
 import random
-from guessingGame import GuessingGame
+import guessingGame as game #NOTE: this import syntax is needed to avoid circular import
 
 class Player:
     def __init__(self, name):
@@ -11,7 +11,7 @@ class Player:
         return self._guess
     
     def play(self):
-        self._guess = random.randit(GuessingGame.s_minGuess, GuessingGame.s_maxGuess)
+        self._guess = random.randint(game.s_minGuess, game.s_maxGuess)
         return self._guess
     
     def getName(self):
