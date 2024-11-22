@@ -11,7 +11,7 @@ class Player:
         return self._guess
     
     def play(self):
-        self._guess = random.randint(game.s_minGuess, game.s_maxGuess)
+        self._guess = random.randint(game.GuessingGame.getMinGuess(), game.GuessingGame.getMaxGuess())
         return self._guess
     
     def getName(self):

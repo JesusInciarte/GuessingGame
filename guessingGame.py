@@ -1,7 +1,7 @@
 """Defines the game logic for the guessing game"""
 
 import random
-from player import Player
+import player
 from interactivePlayer import InteractivePlayer
 class GuessingGame:
     
@@ -14,13 +14,26 @@ class GuessingGame:
         self._roundCount = 0
 
         #create the three player objects
-        self._larry = Player("Larry")
-        self._curly = Player("Curly")
-        self._moe = InteractivePlayer("Moe")
+        self._larry = player.Player("Larry")
+        self._curly = player.Player("Curly")
+        self._moe = InteractivePlayer("Moe", self)
+
+    @staticmethod
+    def getMinGuess():
+        return GuessingGame.s_minGuess
+
+    @staticmethod
+    def getMaxGuess():
+        return GuessingGame.s_maxGuess
+
+    @staticmethod
+    def setGuessRange(minGuess, maxGuess):
+        GuessingGame.s_minGuess = minGuess
+        GuessingGame.s_maxGuess = maxGuess
 
     def start(self):
         #pick a number to be guessed between the game's range
-        self._answer = random.randint(GuessingGame.s_minGuess, GuessingGame.s_maxGuess)
+        self._answer = random.randint(GuessingGame.getMinGuess(), GuessingGame.getMaxGuess())
 
         #repeat asking the user to play for each round of the game until someone wins
         winner = None
@@ -34,8 +47,9 @@ class GuessingGame:
 
             self._curly.play()
             print(f"{self._curly.getName()} guessed {self._curly.getGuess()}")
-
-            self._moe.play()
+            
+            #print(f"The answer is {self._answer}")
+            self._moe.playGame(self._answer)
             print(f"{self._moe.getName()} guessed {self._moe.getGuess()}")
 
             #determine if anybody won

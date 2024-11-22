@@ -7,6 +7,10 @@ class Application:
    def run(self):
       #create the game
       game = GuessingGame()
+      
+      #ask user to determine the guess range
+      userMinGuess, userMaxGuess = self.askUserForGuessRange()
+      GuessingGame.setGuessRange(userMinGuess, userMaxGuess)
 
       #repeat playing the game for as long as the user wants to play
       playAgain = True
@@ -16,6 +20,12 @@ class Application:
 
          #check if the user wants to play again
          playAgain = self.checkPlayAgain()
+
+   def askUserForGuessRange(self):
+       userMinGuess = int(input("Please enter the minimum guess for players: "))
+       userMaxGuess = int(input("Please enter the maximum guess for players: "))
+       return userMinGuess, userMaxGuess
+
 
    def checkPlayAgain(self):
       """Asks the user if they want to play again and returns true/false depending on the answer"""
